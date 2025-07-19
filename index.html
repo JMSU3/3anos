@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>3 Anos Juntos ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      background: #111;
+      overflow-x: hidden;
+      font-family: Arial, sans-serif;
+      color: white;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-50px) rotate(-45deg); opacity: 0.8; }
+      100% { transform: translateY(110vh) rotate(-45deg); opacity: 0; }
+    }
+
+    .heart {
+      position: fixed;
+      width: 30px;
+      height: 30px;
+      background: rgba(240, 100, 150, 0.8);
+      transform: rotate(-45deg);
+      animation: fall 4s linear forwards;
+      pointer-events: none;
+      border-radius: 5px 5px 0 0;
+      z-index: 0;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: rgba(240, 100, 150, 0.8);
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -15px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 15px;
+      top: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 10;
+      max-width: 800px;
+      margin: 40px auto;
+      text-align: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+    }
+
+    .love-message-top {
+      font-size: 18px;
+      font-style: italic;
+      color: #f8bbd0;
+      margin-bottom: 20px;
+    }
+
+    .spotify-embed {
+      margin: 20px 0;
+    }
+
+    .spotify-embed iframe {
+      border: 3px solid #f06292;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #f06292;
+    }
+
+    .carousel-container {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      display: flex;
+      gap: 20px;
+      padding-bottom: 10px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .carousel-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .carousel-slide {
+      flex: 0 0 80%;
+      scroll-snap-align: center;
+      display: flex;
+      justify-content: center;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 15px;
+      border: 3px solid #f06292;
+      box-shadow: 0 0 10px #f06292;
+    }
+
+    .dots {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      background-color: #999;
+      border-radius: 50%;
+      transition: background-color 0.3s;
+    }
+
+    .dot.active {
+      background-color: #f06292;
+    }
+
+    .tempo-amor {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #ffb6c1;
+      font-weight: bold;
+    }
+
+    .final-message {
+      margin-top: 30px;
+      font-size: 17px;
+      color: #ffe0f0;
+      font-weight: 500;
+      white-space: pre-line;
+      text-align: justify;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        max-width: 95%;
+        padding: 15px;
+      }
+
+      .carousel-slide img {
+        max-width: 90%;
+      }
+
+      .love-message-top,
+      .final-message,
+      .tempo-amor {
+        font-size: 16px;
+        padding: 0 10px;
+      }
+
+      .spotify-embed iframe {
+        width: 100% !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <p class="love-message-top">
+    Desde o nosso primeiro “oi”, minha vida ficou mais leve, mais linda e muito mais feliz.
+  </p>
+
+  <div class="spotify-embed">
+    <iframe src="https://open.spotify.com/embed/track/04aBuWoZeHYJeDDTWYSgso?utm_source=generator" width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  </div>
+
+  <!-- Carrossel de Fotos -->
+  <div class="carousel-container" id="carousel">
+    <div class="carousel-slide"><img src="foto1.jpg" alt="Foto 1" /></div>
+    <div class="carousel-slide"><img src="foto2.jpg" alt="Foto 2" /></div>
+    <div class="carousel-slide"><img src="foto3.jpg" alt="Foto 3" /></div>
+    <div class="carousel-slide"><img src="foto4.jpg" alt="Foto 4" /></div>
+    <div class="carousel-slide"><img src="foto5.jpg" alt="Foto 5" /></div>
+  </div>
+
+  <!-- Bolinhas indicadoras -->
+  <div class="dots" id="dots"></div>
+
+  <!-- Contador de tempo -->
+  <div class="tempo-amor" id="contadorAmor"></div>
+
+  <!-- Mensagem Final -->
+  <div class="final-message">
+Hoje completamos 3 anos de uma história escrita com sorrisos, olhares que falam mais que palavras e um amor que transformou tudo em mim.
+
+Antes de você, eu achava que conhecia o amor, mas você me ensinou que ele não é só sentimento, é escolha. Escolha de acordar e me dizer "bom dia" mesmo nos dias ruins, de me abraçar como porto seguro, de me olhar como se eu fosse o seu maior tesouro.
+
+Você me devolveu a fé no amor, e por isso, todos os dias agradeço a Deus por ter colocado você no meu caminho.
+
+São 3 anos de aprendizado, cumplicidade e uma conexão que só cresce. Você é minha paz no caos, a razão do meu sorriso mais genuíno. Se eu pudesse escolher de novo, repetiria cada segundo ao seu lado, até os desafios, porque eles nos tornaram nós.
+
+Que essa data seja só o início de muitos outros capítulos juntos. Eu te amo não só pelo que você é, mas pelo que eu me tornei ao seu lado. Você é minha maior bênção.
+
+Feliz 3 anos, meu amor. Que venham eternos mais!
+
+Com todo o meu coração,  
+João Ugulino
+  </div>
+</div>
+
+<!-- Corações caindo -->
+<script>
+  function criarCoracao() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.style.left = Math.random() * window.innerWidth + 'px';
+    heart.style.animationDuration = (3 + Math.random() * 3) + 's';
+    document.body.appendChild(heart);
+    heart.addEventListener('animationend', () => {
+      heart.remove();
+    });
+  }
+  setInterval(criarCoracao, 300);
+</script>
+
+<!-- Script para bolinhas do carrossel -->
+<script>
+  const carousel = document.getElementById('carousel');
+  const dotsContainer = document.getElementById('dots');
+  const slides = carousel.children;
+  let dotCount = slides.length;
+
+  for (let i = 0; i < dotCount; i++) {
+    let dot = document.createElement('div');
+    dot.classList.add('dot');
+    if (i === 0) dot.classList.add('active');
+    dotsContainer.appendChild(dot);
+  }
+
+  const dots = dotsContainer.children;
+
+  function updateDots() {
+    let scrollLeft = carousel.scrollLeft;
+    let slideWidth = carousel.offsetWidth * 0.8 + 20;
+    let index = Math.round(scrollLeft / slideWidth);
+    Array.from(dots).forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+  }
+
+  carousel.addEventListener('scroll', () => {
+    updateDots();
+  });
+</script>
+
+<!-- Script contador de tempo ao vivo -->
+<script>
+  const dataInicial = new Date("2022-07-17T00:00:00");
+  const contador = document.getElementById("contadorAmor");
+
+  function atualizarContador() {
+    const agora = new Date();
+    let anos = agora.getFullYear() - dataInicial.getFullYear();
+    let meses = agora.getMonth() - dataInicial.getMonth();
+    let dias = agora.getDate() - dataInicial.getDate();
+    let horas = agora.getHours() - dataInicial.getHours();
+    let minutos = agora.getMinutes() - dataInicial.getMinutes();
+    let segundos = agora.getSeconds() - dataInicial.getSeconds();
+
+    if (segundos < 0) {
+      segundos += 60;
+      minutos -= 1;
+    }
+    if (minutos < 0) {
+      minutos += 60;
+      horas -= 1;
+    }
+    if (horas < 0) {
+      horas += 24;
+      dias -= 1;
+    }
+    if (dias < 0) {
+      meses -= 1;
+      const ultimoMes = new Date(agora.getFullYear(), agora.getMonth(), 0);
+      dias += ultimoMes.getDate();
+    }
+    if (meses < 0) {
+      meses += 12;
+      anos -= 1;
+    }
+
+    contador.textContent = `Eu te amo há: ${anos} anos, ${meses} meses, ${dias} dias, ${String(horas).padStart(2, '0')}h ${String(minutos).padStart(2, '0')}min ${String(segundos).padStart(2, '0')}s.`;
+  }
+
+  setInterval(atualizarContador, 1000);
+  atualizarContador();
+</script>
+
+</body>
+</html>
